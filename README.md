@@ -1,6 +1,9 @@
 import pyodbc
+
 print("pyodbc is installed and working.")
-conn=pyodbc.connect(
+
+# SQL Server Connection
+conn = pyodbc.connect(
     "DRIVER={ODBC Driver 18 for SQL Server};"
     "SERVER=DESKTOP-FPQ15DO;"
     "Database=master;"
@@ -8,20 +11,21 @@ conn=pyodbc.connect(
     "Encrypt=no;"
 )
 cursor = conn.cursor()
-print("Connected to SQL Server Successully.!")
+print("Connected to SQL Server Successfully!")
 
 conn.commit()
 print("Table 'students' checked successfully")
 
 
 import tkinter as tk
-from tkinter import ttk   # for table
+from tkinter import ttk  # for table
 
-students = []  # simple in-memory database
+# In-memory student list
+students = []
 
 
 def refresh_table():
-    """Refreshes the table with the latest student data."""
+    """Refresh the table with the latest student data."""
     for row in table.get_children():
         table.delete(row)
 
